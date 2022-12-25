@@ -38,6 +38,16 @@
                 return `You win!${gameResult}`;
             }
         }
+
+        function game() {
+            let counter = 0;
+            while (counter < 5) {
+                playRound("rock", getComputerChoice());
+                counter++;
+            }
+        }
+
+        game();
     </script>
 </body>
 </html>
