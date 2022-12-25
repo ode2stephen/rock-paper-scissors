@@ -13,7 +13,31 @@
             return computerChoice[Math.floor(Math.random() * 3)];
         }
 
-        
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection.toLowerCase();
+            let gameResult = `\nYou played: ${playerSelection}\nComputer played: ${computerSelection}`;
+            if (playerSelection === computerSelection) {
+                return `You draw!${gameResult}`;
+            }
+            else if (playerSelection === "rock" && computerSelection === "paper") {
+                return `You lose!${gameResult}`;
+            }
+            else if (playerSelection === "rock" && computerSelection === "scissors") {
+                return `You win!${gameResult}`;
+            }
+            else if (playerSelection === "paper" && computerSelection === "rock") {
+                return `You win!${gameResult}`;
+            }
+            else if (playerSelection === "paper" && computerSelection === "scissors") {
+                return `You lose!${gameResult}`;
+            }
+            else if (playerSelection === "scissors" && computerSelection === "rock") {
+                return `You lose!${gameResult}`;
+            }
+            else if (playerSelection === "scissors" && computerSelection === "paper") {
+                return `You win!${gameResult}`;
+            }
+        }
     </script>
 </body>
 </html>
