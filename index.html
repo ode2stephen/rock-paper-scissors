@@ -28,29 +28,7 @@
         }
 
         function playRound(playerSelection, computerSelection) {
-            playerSelection = playerSelection.toLowerCase();
-            let roundChoice = `\nYou played: ${playerSelection}\nComputer played: ${computerSelection}`;
-            if (playerSelection === computerSelection) {
-                return `You draw!${roundChoice}`;
-            }
-            else if (playerSelection === "rock" && computerSelection === "paper") {
-                return `You lose!${roundChoice}`;
-            }
-            else if (playerSelection === "rock" && computerSelection === "scissors") {
-                return `You win!${roundChoice}`;
-            }
-            else if (playerSelection === "paper" && computerSelection === "rock") {
-                return `You win!${roundChoice}`;
-            }
-            else if (playerSelection === "paper" && computerSelection === "scissors") {
-                return `You lose!${roundChoice}`;
-            }
-            else if (playerSelection === "scissors" && computerSelection === "rock") {
-                return `You lose!${roundChoice}`;
-            }
-            else if (playerSelection === "scissors" && computerSelection === "paper") {
-                return `You win!${roundChoice}`;
-            }
+            
         }
 
         function playGame() {
