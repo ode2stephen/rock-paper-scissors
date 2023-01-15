@@ -54,27 +54,7 @@
         }
 
         function playGame() {
-            let counter = 0, playerWins = 0, computerWins = 0;
-            while (counter < 5) {
-                let roundResult = playRound(getPlayerChoice(), getComputerChoice());
-                if (getRoundWinner(roundResult) === "player") {
-                    playerWins++;
-                }
-                else if (getRoundWinner(roundResult) === "computer") {
-                    computerWins++;
-                }
-                console.log(`${roundResult}\nPlayer wins: ${playerWins}\nComputer wins: ${computerWins}`);
-                counter++;
-            }
-            if (playerWins > computerWins) {
-                console.log("-----You won the game!!!-----")
-            }
-            else if (computerWins > playerWins) {
-                console.log("-----You lost the game!!!-----");
-            }
-            else {
-                console.log("-----You drew!!!-----");
-            }
+            
         }
 
         playGame();
