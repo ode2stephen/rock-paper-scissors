@@ -24,15 +24,6 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function getRoundWinner(roundResult) {
-    if (roundResult.includes("win")) {
-        return "player";
-    }
-    else if (roundResult.includes("lose")) {
-        return "computer";
-    }
-}
-
 function checkWin(playerSelection, computerSelection) {
     if (computerSelection === playerSelection) return "draw";
     if (computerSelection === "rock" && playerSelection === "paper") return "win";
