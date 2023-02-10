@@ -4,23 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="./images/icon.svg" type="image/x-icon">
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
     <header><h1>ROCK, PAPER, SCISSORS</h1></header>
     <section class="records">
-        <div class="scores"></div>
+        <div class="scores">
+            <div class="comp-score"></div>
+            <div class="player-score"></div>
+        </div>
         <div class="round-winner"></div>
+        <div class="game-winner"></div>
     </section>
     <section class="game-area">
         <div class="outputs">
-            <div class="player-output"></div>
-            <div class="comp-output"></div>
+            <div class="player-output">You played: <div></div></div>
+            <div class="comp-output">Computer played: <div></div></div>
         </div>
         <div class="options">
-            <div id="rock"><img src="./images/circle.svg" alt="rock"></div>
-            <div id="paper"><img src="./images/square.svg" alt="paper"></div>
-            <div id="scissors"><img src="./images/triangle.svg" alt="scissors"></div>
+            <div id="rock"><img src="./images/circle.svg" alt="rock"><span>Rock</span></div>
+            <div id="paper"><img src="./images/square.svg" alt="paper"><span>Paper</span></div>
+            <div id="scissors"><img src="./images/triangle.svg" alt="scissors"><span>Scissors</span></div>
         </div>
     </section>
 </body>
