@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Poppins:ital,wght@0,600;0,700;0,800;1,500&display=swap');
+
+body {
+    box-sizing: border-box;
+    font-family: 'Inconsolata', monospace;
+}
+
+header {
+    background-color: #444444;
+}
