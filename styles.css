@@ -8,21 +8,38 @@
 
 body {
     font-family: 'Inconsolata', monospace;
-    background-color: #777777;
+    background-color: #555555;
     color: #ffffff;
 }
 
 header {
     height: 100px;
-    background-color: #333333;
+    background-color: #222222;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     padding-top: 20px
 }
 
-.outputs {
+.records p:first-child {
+    text-align: center;
+    font-size: 2.3em;
+    font-weight: bold;
+    margin: 30px auto;
+}
+
+.scores {
     display: flex;
-    font-size: 2em;
+    font-size: 0.8em;
+    font-weight: 500;
+    gap: 220px;
+    justify-content: center;
+}
+
+.scores div div{
+    height: 160px;
+    width: 160px;
+    border-radius: 20px;
+    margin: 50px auto;
 }
 
 .options {
@@ -39,16 +56,32 @@ header {
 .options div {
     height: 160px;
     width: 160px;
-    background-color: #444444;
+    background-color: #222222;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
     border-radius: 20px;
-    transition: 0.5s;;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 .options div:hover {
-    background-color: #333333;
+    background-color: #444444;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.footer a:active,
+.footer a:visited {
+    color: #999999;
 }
