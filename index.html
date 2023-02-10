@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="./images/icon.svg" type="image/x-icon">
     <title>Rock, Paper, Scissors</title>
+    <script src="./script.js" defer></script>
 </head>
 <body>
     <header><h1>ROCK, PAPER, SCISSORS</h1></header>
     <section class="records">
-        <p>First to get to 5 points wins!!!</p>
-        <div class="round-winner"></div>
+        <p class="game-winner">First to get to 5 points wins!!!</p>
         <div class="scores">
             <div class="comp-score">
                 <p>Computer: <span></span></p>
@@ -23,13 +23,18 @@
                 <div class="comp-output"></div>
             </div>
         </div>
-        <div class="game-winner"><span></span></div>
     </section>
     <section class="game-area">
         <div class="options">
-            <div id="rock"><img src="./images/circle.svg" alt="rock"><span>Rock</span></div>
-            <div id="paper"><img src="./images/square.svg" alt="paper"><span>Paper</span></div>
-            <div id="scissors"><img src="./images/triangle.svg" alt="scissors"><span>Scissors</span></div>
+            <div class="rock"><img class="rock" src="./images/rock.svg" alt="rock">
+                <span class="rock">Rock</span>
+            </div>
+            <div class="paper"><img class="paper" src="./images/paper.svg" alt="paper">
+                <span class="paper">Paper</span>
+            </div>
+            <div class="scissors"><img class="scissors" src="./images/scissors.svg" alt="scissors">
+                <span class="scissors">Scissors</span>
+            </div>
         </div>
     </section>
     <section class="footer"><a href="https://github.com/steveoncaffeine">By Stephen Adebambo</a></section>
