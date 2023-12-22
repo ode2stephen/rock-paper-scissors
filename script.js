@@ -1,8 +1,9 @@
-let rock = document.querySelector("div.rock");
-let paper = document.querySelector("div.paper");
-let scissors = document.querySelector("div.scissors");
-let userMove = document.querySelector("div.move > div.user-move");
-let compMove = document.querySelector("div.move > div.comp-move");
+let ROCK = document.querySelector("div.rock");
+let PAPER = document.querySelector("div.paper");
+let SCISSORS = document.querySelector("div.scissors");
+let ROUND_RESULT = document.querySelector("section.round-result");
+let USER_MOVE = document.querySelector("div.move > div.user-move");
+let COMP_MOVE = document.querySelector("div.move > div.comp-move");
 // let playState = 0;
 
 // randomly choose between rock, paper, and scissors and return
@@ -13,7 +14,10 @@ function computerPlay() {
 }
 
 function displayResult(compChoice, userChoice) {
-  // function code
+  switch (compChoice) {
+    case "rock":
+    //
+  }
 }
 
 /* compare user and computer input and return a corresponding
@@ -34,7 +38,6 @@ function playGame(event) {
   if (userChoice === "scissors" && compChoice === "scissors") gameResult = -1;
 }
 
-rock.addEventListener("click", playGame);
-paper.addEventListener("click", playGame);
-scissors.addEventListener("click", playGame);
-// rock.addEventListener("click", );
+ROCK.addEventListener("click", playGame);
+PAPER.addEventListener("click", playGame);
+SCISSORS.addEventListener("click", playGame);
