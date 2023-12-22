@@ -1,105 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Poppins:ital,wght@0,600;0,700;0,800;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,500&display=swap');
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
 }
 
 body {
-    font-family: 'Inconsolata', monospace;
-    background-color: #555555;
-    color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  height: 100vh;
 }
 
 header {
-    height: 100px;
-    background-color: #222222;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    padding-top: 20px
+  font-size: clamp(24px, 4vw, 64px);
+  text-align: center;
+  color: #ddd;
+  margin: 24px 0px;
 }
 
-.records p:first-child {
-    text-align: center;
-    font-size: 2.3em;
-    font-weight: bold;
-    margin: 20px auto;
+main section.choices {
+  height: 450px;
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 4vw, 48px);
+  font-size:  clamp(28px, 8vw, 128px);
 }
 
-.round-winner {
-    text-align: center;
-    font-size: 1.6em;
+main section.choices div {
+  border: 4px solid #ddd;
+  border-radius: 50%;
+  padding: 12px;
+} 
+
+main section.scores {
+  height: 32px;
+  display: flex;
+  justify-content: space-around;
+  gap: 28px;
+  color: #ddd;
+  font-size: clamp(16px, 2vw, 64px);
+  margin-bottom: clamp(12px, 3vw, 48px);
 }
 
-.game-winner {
-    text-align: center;
-    font-size: 1.6em;
+main section.game-options {
+  display: flex;
+  justify-content: center;
+  gap: clamp(8px, 1.2vw, 16px);
 }
 
-.scores {
-    display: flex;
-    font-size: 0.8em;
-    font-weight: 500;
-    gap: 120px;
-    justify-content: center;
+main section.game-options button {
+  all: unset;
+  font-size: clamp(16px, 1.8vw, 64px);
+  padding: clamp(8px, 1vw, 16px);
+  color: #ddd;
 }
 
-.scores div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+main section.game-options button.reset {
+  background-color: #fd2f2f;
 }
 
-.scores div div{
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    margin: 50px auto;
-    background-color: #444444;
-}
-
-.options {
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-}
-
-.options img {
-    color: #ffffff;
-    height: 72px;
-}
-
-.options div {
-    height: 160px;
-    width: 160px;
-    background-color: #222222;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 20px;
-    transition: 0.5s;
-    cursor: pointer;
-}
-
-.options div:hover {
-    background-color: #444444;
-}
-
-.footer {
-    text-align: center;
-    margin-top: 60px;
-}
-
-.footer a {
-    text-decoration: none;
-    color: #ffffff;
-}
-
-.footer a:active,
-.footer a:visited {
-    color: #999999;
+main section.game-options button.auto-play {
+  border: 2px solid #ddd;
 }
