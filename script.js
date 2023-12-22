@@ -1,74 +1,40 @@
-const roundWinner = document.querySelector(".game-winner");
-const gameWinner = document.querySelector(".game-winner");
-const compScore = document.querySelector(".comp-score span");
-const playerScore = document.querySelector(".player-score span");
-const playerOutput = document.querySelector(".player-output");
-const compOutput = document.querySelector(".comp-output");
-const options = document.querySelectorAll(".options div");
-let playerChoice;
+let rock = document.querySelector("div.rock");
+let paper = document.querySelector("div.paper");
+let scissors = document.querySelector("div.scissors");
+let userMove = document.querySelector("div.move > div.user-move");
+let compMove = document.querySelector("div.move > div.comp-move");
+// let playState = 0;
 
-function getComputerChoice() {
-    let computerChoices = ["rock", "paper", "scissors"];
-    return computerChoices[Math.floor(Math.random() * 3)];
+// randomly choose between rock, paper, and scissors and return
+function computerPlay() {
+  let options = ["rock", "paper", "scissors"];
+  let choice = Math.floor(Math.random() * 4);
+  return options[choice];
 }
 
-function checkWin(playerSelection, computerSelection) {
-    if (computerSelection === playerSelection) return "draw";
-    if (computerSelection === "rock" && playerSelection === "paper") return "win";
-    if (computerSelection === "rock" && playerSelection === "scissors") return "lose";
-    if (computerSelection === "paper" && playerSelection === "rock") return "lose";
-    if (computerSelection === "paper" && playerSelection === "scissors") return "win";
-    if (computerSelection === "scissors" && playerSelection === "paper") return "lose";
-    if (computerSelection === "scissors" && playerSelection === "rock") return "win";
+function displayResult(compChoice, userChoice) {
+  // function code
 }
 
-let compWinCount = 0;
-let playerWinCount = 0;
-
-const playerImg = document.createElement("img");
-playerOutput.appendChild(playerImg);
-
-const compImg = document.createElement("img");
-compOutput.appendChild(compImg);
-
+/* compare user and computer input and return a corresponding
+value to show who won. this function will be used in each
+event listener and make the comparison based on what was
+clicked. */
 function playGame(event) {
-    gameWinner.textContent = "";
-    let compPlay = getComputerChoice();
-    let playerPlay = event.target.className;
-    let result = checkWin(playerPlay, compPlay);
+  const userChoice = event.target.classList[0];
+  const compChoice = computerPlay();
 
-    if (result === "win") {
-        roundWinner.textContent = "You won this round!" ;
-        playerWinCount++;
-    } else if (result === "lose") {
-        roundWinner.textContent = "You lost this round!";
-        compWinCount++;
-    } else if (result === "draw") {
-        roundWinner.textContent = "You drew this round!";
-    }
-
-    playerImg.src = `./images/${playerPlay}.svg`;
-
-    compImg.src = `./images/${compPlay}.svg`;
-    
-    if (playerWinCount === 5 || compWinCount === 5) {
-        if (playerWinCount > compWinCount) {
-            gameWinner.textContent = "You won the game!";
-        }
-        else if (compWinCount > playerWinCount) {
-            gameWinner.textContent = "You lost the game!";
-        }
-        else {
-            gameWinner.textContent = "You drew the game!";
-        }
-        playerWinCount = 0;
-        compWinCount = 0;
-    }
-
-    playerScore.textContent = playerWinCount;
-    compScore.textContent = compWinCount;
+  let gameResult;
+  if (userChoice === "rock" && compChoice === "rock") gameResult = 0;
+  if (userChoice === "rock" && compChoice === "paper") gameResult = -1;
+  if (userChoice === "rock" && compChoice === "scissors") gameResult = 1;
+  if (userChoice === "paper" && compChoice === "rock") gameResult = 1;
+  if (userChoice === "paper" && compChoice === "paper") gameResult = 0;
+  if (userChoice === "paper" && compChoice === "scissors") gameResult = -1;
+  if (userChoice === "scissors" && compChoice === "scissors") gameResult = -1;
 }
 
-options.forEach(option => {
-    option.addEventListener("click", playGame);
-});
+rock.addEventListener("click", playGame);
+paper.addEventListener("click", playGame);
+scissors.addEventListener("click", playGame);
+// rock.addEventListener("click", );
