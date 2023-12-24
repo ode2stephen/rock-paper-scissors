@@ -1,9 +1,10 @@
-let ROCK = document.querySelector("div.rock");
-let PAPER = document.querySelector("div.paper");
+let ROCK = document.querySelector(".rock");
+let PAPER = document.querySelector(".paper");
 let SCISSORS = document.querySelector("div.scissors");
 let ROUND_RESULT = document.querySelector("section.round-result");
-let USER_MOVE = document.querySelector("div.move > div.user-move");
-let COMP_MOVE = document.querySelector("div.move > div.comp-move");
+let USER_MOVE = document.querySelector(".move .user-move");
+let COMP_MOVE = document.querySelector(".move .comp-move");
+let WINS = document.querySelector(".scores .win span")
 // let playState = 0;
 
 // randomly choose between rock, paper, and scissors and return
@@ -13,10 +14,35 @@ function computerPlay() {
   return options[choice];
 }
 
-function displayResult(compChoice, userChoice) {
+// display the moves played based 
+function displayResult(compChoice, userChoice, gameResult) {
+
+  switch (userChoice) {
+    case "rock":
+      USER_MOVE.textContent = "✊";
+      break;
+    case "paper":
+      USER_MOVE.textContent = "🤚";
+      break;
+    case "scissors":
+      USER_MOVE.textContent = "✌️";
+      break;
+  }
+
   switch (compChoice) {
     case "rock":
-    //
+      COMP_MOVE.textContent = "✊";
+      break;
+    case "paper":
+      COMP_MOVE.textContent = "🤚";
+      break;
+    case "scissors":
+      COMP_MOVE.textContent = "✌️";
+      break;
+  }
+
+  switch (gameResult) {
+    // execute this
   }
 }
 
@@ -27,6 +53,8 @@ clicked. */
 function playGame(event) {
   const userChoice = event.target.classList[0];
   const compChoice = computerPlay();
+
+  displayResult(userChoice, compChoice);
 
   let gameResult;
   if (userChoice === "rock" && compChoice === "rock") gameResult = 0;
