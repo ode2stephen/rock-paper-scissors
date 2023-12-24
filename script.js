@@ -4,7 +4,10 @@ let SCISSORS = document.querySelector("div.scissors");
 let ROUND_RESULT = document.querySelector("section.round-result");
 let USER_MOVE = document.querySelector(".move .user-move");
 let COMP_MOVE = document.querySelector(".move .comp-move");
-let WINS = document.querySelector(".scores .win span")
+let WINS = document.querySelector(".scores .wins span");
+let LOSSES = document.querySelector(".scores .losses span");
+let TIES = document.querySelector(".scores .ties span");
+let MOVE_DISPLAYS = document.querySelectorAll(".round-result .move");
 // let playState = 0;
 
 // randomly choose between rock, paper, and scissors and return
@@ -14,8 +17,11 @@ function computerPlay() {
   return options[choice];
 }
 
-// display the moves played based 
+// display the moves played based on input
 function displayResult(compChoice, userChoice, gameResult) {
+  MOVE_DISPLAYS.forEach(element => {
+    element.style.display = "flex";
+  });
 
   switch (userChoice) {
     case "rock":
@@ -41,8 +47,17 @@ function displayResult(compChoice, userChoice, gameResult) {
       break;
   }
 
+  // increment wins/losses/ties by 1 depending on outcome
   switch (gameResult) {
-    // execute this
+    case 1:
+      WINS.textContent = Number(WINS.textContent) + 1;
+      break;
+    case 0:
+      TIES.textContent = Number(TIES.textContent) + 1;
+      break;
+    case -1:
+      LOSSES.textContent = Number(LOSSES.textContent) + 1;
+      break;
   }
 }
 
@@ -53,9 +68,7 @@ clicked. */
 function playGame(event) {
   const userChoice = event.target.classList[0];
   const compChoice = computerPlay();
-
-  displayResult(userChoice, compChoice);
-
+  
   let gameResult;
   if (userChoice === "rock" && compChoice === "rock") gameResult = 0;
   if (userChoice === "rock" && compChoice === "paper") gameResult = -1;
@@ -64,6 +77,8 @@ function playGame(event) {
   if (userChoice === "paper" && compChoice === "paper") gameResult = 0;
   if (userChoice === "paper" && compChoice === "scissors") gameResult = -1;
   if (userChoice === "scissors" && compChoice === "scissors") gameResult = -1;
+
+  displayResult(compChoice, userChoice, gameResult);
 }
 
 ROCK.addEventListener("click", playGame);
