@@ -27,7 +27,7 @@ header {
 }
 
 main section.choices {
-  height: 450px;
+  height: clamp(calc(70vh - 100vw), 40%, 450px);
   display: flex;
   align-items: center;
   gap: clamp(18px, 4vw, 48px);
@@ -39,6 +39,31 @@ main section.choices div {
   border-radius: 50%;
   padding: 12px;
 } 
+
+main section.round-result {
+  display: none;
+  justify-content: space-between;
+  gap: clamp(8px, 1.2vw, 16px);
+  color: #ddd;
+  margin: 24px 0 36px;
+  text-align: center;
+}
+
+main section.round-result .move {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+main section.round-result .move p {
+  font-size: clamp(14px, 2vw, 48px);
+}
+
+main section.round-result .move div {
+  font-size: clamp(24px, 2vw, 56px);
+  padding: 16px;
+}
 
 main section.scores {
   height: 32px;
