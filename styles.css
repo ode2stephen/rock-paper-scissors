@@ -41,6 +41,7 @@ main section.choices div {
 } 
 
 main section.round-result {
+  display: flex;
   justify-content: space-between;
   gap: clamp(8px, 1.2vw, 16px);
   color: #ddd;
