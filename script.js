@@ -13,7 +13,7 @@ let MOVE_DISPLAYS = document.querySelectorAll(".round-result .move");
 // randomly choose between rock, paper, and scissors and return
 function computerPlay() {
   let options = ["rock", "paper", "scissors"];
-  let choice = Math.floor(Math.random() * 4);
+  let choice = Math.floor(Math.random() * 3);
   return options[choice];
 }
 
