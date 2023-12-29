@@ -25,25 +25,25 @@ function displayResult(compChoice, userChoice, gameResult) {
 
   switch (userChoice) {
     case "rock":
-      USER_MOVE.textContent = "✊";
+      USER_MOVE.textContent = "rock";
       break;
     case "paper":
-      USER_MOVE.textContent = "🤚";
+      USER_MOVE.textContent = "paper";
       break;
     case "scissors":
-      USER_MOVE.textContent = "✌️";
+      USER_MOVE.textContent = "scissors";
       break;
   }
 
   switch (compChoice) {
     case "rock":
-      COMP_MOVE.textContent = "✊";
+      COMP_MOVE.textContent = "rock";
       break;
     case "paper":
-      COMP_MOVE.textContent = "🤚";
+      COMP_MOVE.textContent = "paper";
       break;
     case "scissors":
-      COMP_MOVE.textContent = "✌️";
+      COMP_MOVE.textContent = "scissors";
       break;
   }
 
