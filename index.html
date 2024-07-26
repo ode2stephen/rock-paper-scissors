@@ -1,32 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rock, paper, scissors</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="./script.js" defer></script>
-</head>
-
-<body>
-    <h1>rock, paper, scissors</h1>
+  <head>
+    <title>Rock Paper Scissors</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./styles.css" rel="stylesheet" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>Rock / Paper / Scissors</header>
     <main>
-        <div class="choices">
-            <div class="rock">&#9994;</div>
-            <div class="paper">&#9995;</div>
-            <div class="scissors">&#9996;</div>
+      <section class="choices">
+        <div class="rock">rock</div>
+        <div class="paper">paper</div>
+        <div class="scissors">scissors</div>
+      </section>
+      <section class="round-result">
+        <div class="move">
+          <p>You played:</p>
+          <div class="user-move"></div>
         </div>
-        <div class="scores">
-            <div>User</div>
-            <div>Round</div>
-            <div>Computer</div>
-            <div class="user-score"></div>
-            <div class="round-count"></div>
-            <div class="comp-score"></div>
+        <div class="move">
+          <p>Computer played:</p>
+          <div class="comp-move"></div>
         </div>
-        <div class="opts"></div>
+      </section>
+      <section class="scores">
+        <span class="wins"> Wins: <span>0</span> </span>
+        <span class="losses">Losses: <span>0</span> </span>
+        <span class="ties">Ties: <span>0</span> </span>
+      </section>
+      <section class="game-options">
+        <button class="reset">Reset Scores</button>
+        <button class="auto-play">Auto-Play</button>
+      </section>
     </main>
-</body>
-
+  </body>
 </html>
