@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 :root {
     /* VARIABLES */
     --bg: #121212;
@@ -29,6 +31,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: var(--bg);
+    font-family: 'Roboto', sans-serif;
 }
 
 h1 {
@@ -62,6 +65,7 @@ main {
     border-radius: 24px;
     height: 52px;
     margin-bottom: 24px;
+    padding: 0 4px;
     display: flex;
     justify-content: center;
     align-items: center;
