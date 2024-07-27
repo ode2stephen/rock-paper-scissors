@@ -57,10 +57,10 @@ main {
 }
 
 .result {
-    width: min(80vw, 600px);
+    width: min(84vw, 600px);
     border: 1px solid var(--fg);
     border-radius: 24px;
-    height: 48px;
+    height: 52px;
     margin-bottom: 24px;
     display: flex;
     justify-content: center;
