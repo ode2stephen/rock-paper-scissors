@@ -2,19 +2,17 @@ function player(name) {
     let choice;
     let score = 0;
     const getChoice = () => choice;
-    const makeUserChoice = (newChoice) => {
+    const makeChoice = (newChoice) => {
         choice = newChoice;
     }
-    const makeCompChoice = () => {
-        choice = ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 2)];
+    const makeAutoChoice = () => {
+        choice = ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)];
     }
     const getScore = () => score;
     const incrScore = () => score++;
     const resetScore = () => score = 0;
 
-    const makeChoice = name === "user" ? makeUserChoice : makeCompChoice;
-
-    return { name, getChoice, makeChoice, getScore, incrScore, resetScore };
+    return { name, getChoice, makeChoice, makeAutoChoice, getScore, incrScore, resetScore };
 }
 
 const game = (() => {
@@ -33,8 +31,6 @@ const game = (() => {
         return user.getChoice() === comp.getChoice();
     }
 
-    const resetScores = () => { }
-
     const incrRound = () => round++;
     const getRound = () => round;
     const resetRound = () => round = 0;
@@ -42,7 +38,7 @@ const game = (() => {
     return { user, comp, checkWin, checkDraw, getRound, resetRound, incrRound };
 })();
 
-(function ui() {
+(function main() {
     const rock = document.querySelector('.rock');
     const paper = document.querySelector('.paper');
     const scissors = document.querySelector('.scissors');
@@ -50,16 +46,16 @@ const game = (() => {
     const compScoreBox = document.querySelector('.comp-score');
     const roundBox = document.querySelector('.round-count');
     const result = document.querySelector('.result');
+    const restartGameButton = document.querySelector('.restart-game');
+    const toggleAutoplayButton = document.querySelector('.toggle-autoplay');
+    let isAutoplayOn = false;
+    let timer;
 
-    const play = (event) => {
-        game.user.makeChoice(event.target.className);
-        game.comp.makeChoice();
+    const play = () => {
         result.textContent = `you played ${game.user.getChoice()} and comp played ${game.comp.getChoice()}`;
         if (game.checkWin()) {
             game.user.incrScore();
-        } else if (game.checkDraw()) {
-        } else {
-            console.log('user lost');
+        } else if (!game.checkDraw()) {
             game.comp.incrScore();
         }
         game.incrRound();
@@ -69,7 +65,53 @@ const game = (() => {
         roundBox.textContent = game.getRound();
     }
 
-    rock.addEventListener('click', play);
-    paper.addEventListener('click', play);
-    scissors.addEventListener('click', play);
+    const manualPlay = (event) => {
+        game.user.makeChoice(event.target.className);
+        game.comp.makeAutoChoice();
+        play();
+    }
+
+    const autoPlay = () => {
+        game.user.makeAutoChoice();
+        game.comp.makeAutoChoice();
+        play();
+    }
+
+    const restartGame = () => {
+        game.user.resetScore();
+        game.comp.resetScore();
+        game.resetRound();
+        userScoreBox.textContent = '0';
+        compScoreBox.textContent = '0';
+        roundBox.textContent = '0';
+    }
+
+    const toggleAutoplay = () => {
+
+        const enableAutoplay = () => {
+            rock.removeEventListener('click', play);
+            paper.removeEventListener('click', play);
+            scissors.removeEventListener('click', play);
+            toggleAutoplayButton.classList.add('active');
+            isAutoplayOn = true;
+            timer = setInterval(autoPlay, 1500);
+        }
+
+        const disableAutoplay = () => {
+            isAutoplayOn = false;
+            clearInterval(timer);
+            toggleAutoplayButton.classList.remove('active');
+            rock.addEventListener('click', manualPlay);
+            paper.addEventListener('click', manualPlay);
+            scissors.addEventListener('click', manualPlay);
+        }
+
+        isAutoplayOn ? disableAutoplay() : enableAutoplay();
+    }
+
+    rock.addEventListener('click', manualPlay);
+    paper.addEventListener('click', manualPlay);
+    scissors.addEventListener('click', manualPlay);
+    restartGameButton.addEventListener('click', restartGame);
+    toggleAutoplayButton.addEventListener('click', toggleAutoplay);
 })();
